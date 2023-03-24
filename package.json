@@ -9,7 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "postinstall": "tsc"
+    "preinstall": "yarn install --ignore-scripts && yarn build"
   },
   "engines": {
     "node": ">=14"
