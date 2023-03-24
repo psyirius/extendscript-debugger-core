@@ -20,6 +20,28 @@ type ESDPlatform = `${NodeJS.Platform}-${CpuArch}`;
 
 type ESDCoreInterface = typeof esdcorelibinterface;
 
+export enum ESDCoreStatus {
+    UNDEFINED = -2,
+    FAILED = -1,
+    SUCCESS = 0,
+    SCRIPTHOST_INIT_FAILED = 1,
+    DEBUGGER_SCRIPTS_LOAD_FAILED = 2,
+    INIT_FAILED = 3,
+    DESTROY_FAILED = 4,
+    TARGETS_FETCH_FAILED = 5,
+    BUFFER_LENGTH_LESS = 6,
+    SESSION_ENGINES_FETCH_FAILED = 7,
+    NO_SUCH_DEBUG_COMMAND = 8,
+    SCRIPT_EXECUTION_NO_RESULT = 9,
+    CLIENT_CONTEXT_NULL = 10,
+    ALREADY_INITIALIZED = 11,
+    NOT_INITIALIZED = 12,
+    NO_LAST_ERROR_INFO = 13,
+    ES_ENGINE_NO_ERROR = 14,
+    ES_ENGINE_ERROR = 15,
+    JSX_COMPILATION_FAILED = 16,
+}
+
 export const SupportedPlatforms: ESDPlatform[] = [
     'win32-ia32',
     'win32-x64',
@@ -35,7 +57,7 @@ function IsCurrentPlatformSupported(): boolean {
 }
 
 function getESDLibPath(): string {
-    return path.join(path.dirname(__dirname), 'bin', process.platform, process.arch, libName)
+    return path.join(path.dirname(__dirname), 'lib', process.platform, process.arch, libName)
 }
 
 let _coreLib: ESDCoreInterface;

@@ -7,15 +7,22 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
-    "build": "tsc",
-    "preinstall": "yarn install --ignore-scripts && yarn build"
+    "build": "tsup",
+    "test": "mocha",
+    "postinstall": "npx tsup"
   },
   "engines": {
     "node": ">=14"
   },
   "devDependencies": {
+    "tsup": "^6.7.0",
     "@types/node": "^14.18.40",
-    "typescript": "^5.0.2"
+    "@types/mocha": "^10.0.1",
+    "@types/chai": "^4.3.4",
+    "typescript": "^5.0.2",
+    "mocha": "^10.2.0",
+    "chai": "^4.3.7"
   }
 }

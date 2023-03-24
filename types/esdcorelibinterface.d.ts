@@ -42,11 +42,11 @@ declare module 'esdcorelibinterface' {
 
     export function esdInitialize(spec: string, processId: number): ESDCoreInitializationResult;
 
+    export function esdIsInitialized(): boolean;
+
     export function esdCompileToJSXBin(source: string, scriptId: string, includePath: string): ESDCoreCompilationResult;
 
     export function esdCheckSyntax(source: string, scriptId: string, includePath: string): ESDCoreSyntaxCheckResult;
-
-    export function esdIsInitialized(): boolean;
 
     export function esdCleanup(): ESDCoreInitializationResult;
 }
